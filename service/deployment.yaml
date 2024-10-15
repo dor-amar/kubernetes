@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 2  # Create 2 pods
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.19  # NGINX image
+        ports:
+        - containerPort: 80  # Expose port 80
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name  # Inject the pod name into the environment variable
+        command: [ 'sh', '-c', 'echo "Welcome to pod: $POD_NAME" > /usr/share/nginx/html/index.html && nginx -g "daemon off;"' ]

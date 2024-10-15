@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-env-pod
+  labels:
+    app: nginx-env
+    class: hello
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    env:
+    - name: NGINX_PORT
+      value: "80"
+    - name: DB_CONNECTION_STRING
+      value: "localhost:8080"
+    - name: ENV
+      value: "Production"
+    ports:
+    - containerPort: 80
