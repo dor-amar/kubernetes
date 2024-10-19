@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: my-web-app
 spec:
-  replicas: 3
+  replicas: 7
   selector:
     matchLabels:
       app: my-web-app  # This selector must match the labels below in the template
