@@ -6,7 +6,7 @@ spec:
   tolerations:
   - key: "dedicated"
     operator: "Equal"
-    value: "special"
+    value: "spicial"
     effect: "NoSchedule"
   containers:
   - name: nginx

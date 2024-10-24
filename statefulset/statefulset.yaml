@@ -1,8 +1,9 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: nginx-deployment
+  name: nginx-statefulset
 spec:
+  serviceName: "nginx"
   replicas: 3
   selector:
     matchLabels:
@@ -11,12 +12,10 @@ spec:
     metadata:
       labels:
         app: nginx
-        dor: amar
     spec:
       containers:
       - name: nginx
-        image: nginx:1.14.2
+        image: benhall/nginx-with-curl
         ports:
         - containerPort: 80
-  strategy:
-    type: Recreate
+  podManagementPolicy: OrderedReady

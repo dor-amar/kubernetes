@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: high-memory-pod-change
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  nodeSelector:
+    cpu: low

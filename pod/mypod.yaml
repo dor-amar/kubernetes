@@ -2,8 +2,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-env-pod
+  namespace: dev
   labels:
-    app: nginx-env
+    app: nginx
     class: hello
 spec:
   containers:
