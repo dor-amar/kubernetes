@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-limits-example
+spec:
+  containers:
+  - name: resource-container
+    image: nginx
+    resources:
+      requests:
+        memory: "64Mi"   # Request 64Mi of memory
+        cpu: "250m"      # Request 250 milliCPU (0.25 CPU)
+      limits:
+        memory: "128Mi"  # Limit memory to 128Mi
+        cpu: "500m"      # Limit CPU to 500 milliCPU (0.5 CPU)
+

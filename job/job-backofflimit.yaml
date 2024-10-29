@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: example-job-with-retries
+spec:
+  backoffLimit: 4  # Retry up to 4 times if the Job fails
+  template:
+    spec:
+      containers:
+      - name: job-container
+        image: busybox
+        command: ["false"]  # This command will fail, triggering retries
+      restartPolicy: Never
