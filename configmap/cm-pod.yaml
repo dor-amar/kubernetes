@@ -4,17 +4,18 @@ metadata:
   name: myapp-pod
 spec:
   containers:
-  - name: myapp-container
-    image: nginx
-    env:
-    - name: APP_NAME
-      valueFrom:
-        configMapKeyRef:
-          name: my-config # From what confingMap get the values ?
-          key: APP_NAME # What Value to put in to APP_NAME
-    - name: APP_PORT
-      valueFrom:
-        configMapKeyRef:
-          name: my-config
-          key: APP_PORT
-
+    - name: myapp-container
+      image: nginx
+      env:
+        - name: APP_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: my-config # From what confingMap get the values ?
+              key: appName # What Value to put in to APP_NAME
+        - name: APP_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: my-config
+              key: appPort
+        - name: ENV
+          value: "Prod"

@@ -1,0 +1,10 @@
+# backend.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backend
+spec:
+  containers:
+    - name: backend
+      image: postgres:15
+      command: ["sleep", "3600"]

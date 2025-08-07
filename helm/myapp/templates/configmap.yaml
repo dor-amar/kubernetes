@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: my-config-prod
+  name: helm-cm
 data:
   APP_NAME: myapp
   APP_PORT: "8080"
   ENVIRONMENT: "production"
-  CPU: "2"
+  CLASS: "NOV"

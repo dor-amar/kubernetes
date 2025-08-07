@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
+  labels:
+    app: nginx
 spec:
   replicas: 3
   selector:
@@ -11,7 +13,6 @@ spec:
     metadata:
       labels:
         app: nginx
-        dor: amar
     spec:
       containers:
         - name: nginx
@@ -19,4 +20,4 @@ spec:
           ports:
             - containerPort: 80
   strategy:
-    type: Recreate
+    type: RollingUpdate

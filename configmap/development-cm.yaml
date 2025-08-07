@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: my-config
+  name: my-config-development
 data:
   APP_NAME: myapp
   APP_PORT: "8080"
-  ENVIRONMENT: "production"
+  ENVIRONMENT: "dev"
   CPU: "1"

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: {{ .Values.replicaCount }} # Create 2 pods
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest # NGINX image
+          env:
+            - name: APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: helm-cm
+                  key: APP_NAME
+            - name: APP_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: helm-cm
+                  key: APP_PORT
+          ports:
+            - containerPort: 80 # Expose port 80
+

@@ -3,6 +3,5 @@ kind: ConfigMap
 metadata:
   name: app-config
 data:
-  APP_NAME: "MyPythonApp"
-  APP_PORT: "8080"
-
+  APP_NAME: "NOV-APP"
+  APP_PORT: "9090"

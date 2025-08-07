@@ -4,10 +4,10 @@ metadata:
   name: pod-with-env
 spec:
   containers:
-  - name: my-app
-    image: nginx
-    env:
-    - name: MY_ENV_VAR
-      value: "Hello, Kubernetes!"
-    ports:
-    - containerPort: 80
+    - name: my-app
+      image: nginx
+      env:
+        - name: ENV
+          value: "dev"
+      ports:
+        - containerPort: 80

@@ -4,9 +4,10 @@ metadata:
   name: nginx-service
 spec:
   selector:
-    app: nginx  # Targets the pods with the 'app: nginx' label
+    app: nginx
+    env: dev # Targets the pods with the 'app: nginx' label
   ports:
-  - protocol: TCP
-    port: 80  # The port on which the service will be exposed
-    targetPort: 80  # The port on the pods
-  type: ClusterIP  # Default service type that creates an internal cluster IP
+    - protocol: TCP
+      port: 80 # The port on which the service will be exposed
+      targetPort: 6000 # The port on the pods
+  type: ClusterIP # Default service type that creates an internal cluster IP

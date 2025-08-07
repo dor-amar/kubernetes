@@ -8,8 +8,8 @@ spec:
       name: simple-job
     spec:
       containers:
-      - name: busybox
-        image: busybox
-        command: ["echo", "Hello, Kubernetes!"]
+        - name: busybox
+          image: busybox
+          command: ["echo", "Hello, Kubernetes!"]
       restartPolicy: Never
   backoffLimit: 4

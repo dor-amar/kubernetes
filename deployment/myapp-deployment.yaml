@@ -3,24 +3,24 @@ kind: Deployment
 metadata:
   name: my-web-app
 spec:
-  replicas: 7
+  replicas: 2
   selector:
     matchLabels:
-      app: my-web-app  # This selector must match the labels below in the template
+      app: my-web-app # This selector must match the labels below in the template
   template:
     metadata:
       labels:
-        app: my-web-app  # The labels must match the selector
+        app: my-web-app # The labels must match the selector
     spec:
       containers:
-      - name: my-web-app
-        image: doramar97/my-web-app:latest
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 80
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 80
-          initialDelaySeconds: 5
-          periodSeconds: 10
+        - name: my-web-app
+          image: doramar97/my-app-nov:2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
